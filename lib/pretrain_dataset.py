@@ -96,13 +96,10 @@ class PretrainDataset(Dataset):
             scene_type = get_scene_type_id(type_name, scene_type_mapping)
         
         # get language tokens
-        lang_tokens = clip.tokenize(self.lang[scene_id][str(object_id)][ann_id],context_length = CONF.TRAIN.MAX_TEXT_LEN, truncate = True).squeeze()        
-        #print(self.lang[scene_id][str(object_id)][ann_id],'next')
+        lang_tokens = clip.tokenize(self.lang[scene_id][str(object_id)][ann_id],context_length = CONF.TRAIN.MAX_TEXT_LEN, truncate = True).squeeze()
+        
         lang_len = len(self.scanrefer[idx]["token"])
         lang_len = lang_len if lang_len <= CONF.TRAIN.MAX_TEXT_LEN  else CONF.TRAIN.MAX_TEXT_LEN
-        # lang_len = len(self.scanrefer[idx]["token"]) + 2
-        # lang_len = lang_len if lang_len <= CONF.TRAIN.MAX_DES_LEN + 2 else CONF.TRAIN.MAX_DES_LEN + 2
-
 
         # get top down image of the scene
         img = self.clip_preprocess(Image.open(self.topdown_imgs[scene_id]))
