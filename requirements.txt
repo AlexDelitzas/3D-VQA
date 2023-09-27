@@ -1,0 +1,26 @@
+# ScanQA requirements
+plyfile
+imageio
+opencv-python
+trimesh==2.35.39
+tensorboardX
+easydict
+tqdm
+h5py
+matplotlib
+wandb
+pandas
+scikit-learn
+spacy
+nltk
+pycocoevalcap
+
+# CLIP requirements
+ftfy
+regex
+git+https://github.com/openai/CLIP.git
+
+# Ours
+transformers
+einops
+open3d
